@@ -1,11 +1,11 @@
 import { pusher } from "../../../lib";
 
-// public channel handler
+// channel handler
 export default async function handler(req, res) {
-  const { message, sender } = req.body;
-  await pusher.trigger("chat", "chat-event", {
-    message,
-    sender,
+  const { username, room } = req.body;
+  await pusher.trigger(`${room}`, "chat-event", {
+    username,
+    room,
   });
 
   res.json({ message: "completed" });

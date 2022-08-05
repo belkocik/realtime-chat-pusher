@@ -7,7 +7,6 @@ export default async function handler(req, res) {
   await pusher.trigger(`presence-${room}`, "chat-update", {
     message,
     username,
-    room,
   });
 
   res.json({ status: 200 });

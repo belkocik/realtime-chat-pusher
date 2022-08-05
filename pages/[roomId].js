@@ -78,15 +78,15 @@ const Chat = ({ username, room }) => {
   };
 
   return (
-    <div className="m-auto max-w-full h-screen bg-cyan-600 shadow-lg p-2 lg:p-0">
-      <div className="max-w-5xl m-auto pt-10 ">
-        <div className="flex flex-col bg-white px-4 py-4  rounded-lg">
-          <div className="flex align-center justify-center text-4xl text-teal-400 font-bold p-4">
+    <div className="m-auto h-screen bg-cyan-600 shadow-lg p-2 lg:p-0 ">
+      <div className="max-w-5xl m-auto pt-10  ">
+        <div className="flex flex-col bg-white px-4 py-4  rounded-lg  ">
+          <div className="flex align-center justify-center text-4xl text-teal-400 font-bold p-4 ">
             Secret Chat Room
           </div>
           <ScrollToBottom>
-            <div className=" flex w-full rounded-lg px-5 py-5  h-[54rem] max-h-[54rem] ">
-              <div className="flex-1 ">
+            <div className=" flex w-full rounded-lg px-5 py-5 lg:h-[54rem]  min-h-[18rem] h-screen max-h-[24rem] lg:max-h-[48rem] ">
+              <div className="flex-1  ">
                 {chats.map((chat, id) => (
                   <ChatList key={id} chat={chat} currentUser={username} />
                 ))}
@@ -105,6 +105,7 @@ const Chat = ({ username, room }) => {
               onChange={(e) => setMessage(e.target.value)}
               className="col-span-3 focus:outline-none focus:ring-1 focus:ring-purple-500 border-2 w-full border-gray-200 rounded-l-md px-2 py-2"
               placeholder="Text here"
+              required
             />
             <button
               type="submit"
@@ -113,7 +114,7 @@ const Chat = ({ username, room }) => {
               Send
             </button>
           </form>
-          <div className="flex justify-between align-center mt-4">
+          <div className="flex justify-between align-center mt-4 border-gray-200 rounded-md px-2 py-2 bg-teal-50 align-center">
             <div>
               <div className="font-bold">
                 Hello, <span className="text-yellow-400"> {username}</span>
@@ -121,11 +122,17 @@ const Chat = ({ username, room }) => {
               </div>
               <SignOutButton onSignOut={handleSignOut} />
             </div>
+            <div>
+              <Notifications
+                onlineUsersCount={onlineUsersCount}
+                usersRemoved={usersRemoved}
+                onlineUsers={onlineUsers}
+              />
+            </div>
             <div className="text-gray-700 font-bold">
               <div>
                 Room ID: <span className="text-yellow-400"> {room}</span>
               </div>
-              <Notifications onlineUsersCount={onlineUsersCount} />
             </div>
           </div>
         </div>
