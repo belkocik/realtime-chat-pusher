@@ -1,6 +1,6 @@
 # ✨Realtime chat application - Next.js/TailwindCSS/Pusher ⚛️
 
-![alt text](https://marcin-niedbalec.vercel.app/_next/image?url=https%3A%2F%2Fmedia.graphassets.com%2F8sFmGbZgTCmcq1jDbwkA&w=1920&q=75)
+![alt text](https://media.graphassets.com/kXGCMQcFTjuUf0wzXNd2)
 
 What I used to create this project?
 
